@@ -49,5 +49,13 @@ pipeline {
                 }
             }
         }
+        stage('Clean Up Docker Images on Jenkins Server') {
+            steps {
+                echo 'Cleaning up unused Docker images on Jenkins server'
+
+                // Clean up unused Docker images, including those created within the last hour
+                sh "docker image prune -f --all --filter \"until=1h\""
+            }
+        }
     }
 }
