@@ -17,7 +17,7 @@ pipeline {
         stage('Git Clone') {
             steps {
                 echo 'Git Clone'
-                git url: 'https://github.com/sjh4616/spring-petclinic.git',
+                git url: 'https://github.com/Swiepr/spring-petclinic.git',
                 branch: 'wavefront'
             }
             post {
@@ -48,7 +48,7 @@ pipeline {
                     """
                 }
             }
-        }
+        }       
         stage('Push Docker Image') {
             steps {
                 echo "Push Docker Image to ECR"
